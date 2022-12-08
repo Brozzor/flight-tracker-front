@@ -8,10 +8,10 @@ import List from '../components/List/List'
 
 const Home = () => {
     const apiBaseUrl = useSelector((state) => state.apiBaseUrl.value)
-    const listHeader = ['Personnalité', 'Numéro de l\'avion', 'Durée', "Parti de", "Arrivée à"]
+    const listHeader = ['Personnalité', 'Numéro de l\'avion', 'Durée', "Parti de", "Arrivée à", ""]
     const listBody = [
-        [ {personality: {name: 'Lindsay Walton'}}, {plane_number: 'JYGUY7'}, {duration: '3 heures'}, {from: 'madrid'}, {to: 'Berlin'} ],
-        [ {personality: {name: 'Lindsay Walton'}}, {plane_number: 'JYGUY7'}, {duration: '3 heures'}, {from: 'madrid'}, {to: 'Berlin'} ],
+        [ {value: 'Lindsay Walton', class: 'text-gray-900 font-medium'}, {value: 'JYGUY7'}, {value: '3 heures'}, {value: 'madrid'}, {value: 'Berlin'} ],
+        [ {value: 'margery', class: 'text-gray-900 font-medium'}, {value: 'JYGUY8'}, {value: '4 heures'}, {value: 'paris'}, {value: 'los angeles'} ],
       ]
     return (
         <div>
@@ -59,7 +59,7 @@ const Home = () => {
                             </button>
                         </div>
                     </div>
-                    <List header={listHeader} />
+                    <List header={listHeader} listBody={listBody} />
                 </div>
 
             </div>

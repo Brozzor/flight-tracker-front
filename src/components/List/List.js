@@ -1,9 +1,4 @@
-const listBody = [
-    [ {personality: {name: 'Lindsay Walton'}}, {plane_number: 'JYGUY7'}, {duration: '3 heures'}, {from: 'madrid'}, {to: 'Berlin'} ],
-    // More people...
-  ]
-  
-  export default function List(props) {
+export default function List(props) {
 
     console.log(props)
     return (
@@ -22,15 +17,11 @@ const listBody = [
               </tr>
             </thead>
             <tbody className="divide-y divide-gray-200 bg-white">
-              {flights.map((flight) => (
-                <tr key={flight.personality.name}>
-                  <td className="w-full max-w-0 py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:w-auto sm:max-w-none sm:pl-6">
-                    {flight.personality.name}
-                  </td>
-                  <td className="hidden px-3 py-4 text-sm text-gray-500 lg:table-cell">{flight.plane_number}</td>
-                  <td className="hidden px-3 py-4 text-sm text-gray-500 sm:table-cell">{flight.duration}</td>
-                  <td className="px-3 py-4 text-sm text-gray-500">{flight.from}</td>
-                  <td className="px-3 py-4 text-sm text-gray-500">{flight.to}</td>
+              {props.listBody.map((elem, i) => (
+                <tr key={i}>
+                  {elem.map((elem2, k) => (
+                    <td key={k} className={`${elem2.class ? elem2.class : ''} px-3 py-4 text-sm`}>{elem2.value}</td>
+                  ))}
                   <td className="py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
                     <a href="#" className="text-indigo-600 hover:text-indigo-900">
                       Edit<span className="sr-only">ffff</span>
