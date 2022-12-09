@@ -1,9 +1,14 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { useSelector } from 'react-redux'
 import { LockClosedIcon } from '@heroicons/react/20/solid'
 import logo from '../assets/images/logo.svg'
+import axios from 'axios'
+import { ToastContainer, toast } from 'react-toastify';
 
 const Login = () => {
+  const navigate = useNavigate();
+  const apiBaseUrl = useSelector((state) => state.apiBaseUrl.value)
   const [form, setForm] = React.useState({
     email: '',
     password: ''
@@ -12,10 +17,20 @@ const Login = () => {
   const handleChange = (event) => {
     setForm({ ...form, [event.target.name]: event.target.value });
   };
-
-  const handleSubmit = (event) => {
+  
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    console.log(form);
+
+    try {
+      const {data} = await axios.post(apiBaseUrl + '/auth/login', form)
+      localStorage.token = data
+      navigate('/')
+    } catch (error) {
+      toast.error("Identifiants invalide")
+      console.error(error)
+    }
+    
+    
   };
 
   return (
@@ -87,6 +102,7 @@ const Login = () => {
               </div>
             </form>
           </div>
+          <ToastContainer />
         </div>
   );
 };
