@@ -8,7 +8,6 @@ import Home from "./views/Home";
 import Login from "./views/Login";
 import Register from "./views/Register";
 import PrivateRoutes from "./utils/PrivateRoutes"
-import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 function App() {

@@ -30,7 +30,6 @@ const Login = () => {
       console.error(error)
     }
     
-    
   };
 
   return (
@@ -47,9 +46,7 @@ const Login = () => {
               </h2>
               <p className="mt-2 text-center text-sm text-gray-600">
                 Ou{' '}
-                <a href="#" className="font-medium text-indigo-600 hover:text-indigo-500">
-                  Inscrivez vous ici !
-                </a>
+                <Link to="/register" className="font-medium text-indigo-600 hover:text-indigo-500" >Inscrivez vous ici !</Link>
               </p>
             </div>
             <form className="mt-8 space-y-6" onSubmit={handleSubmit}>

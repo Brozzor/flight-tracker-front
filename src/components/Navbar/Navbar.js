@@ -1,4 +1,5 @@
 import { Fragment } from 'react'
+import { Link, useNavigate } from "react-router-dom";
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import logo from '../../assets/images/logo-min.png'
@@ -8,11 +9,18 @@ const navigation = [
   { name: 'Personnalités', href: '#', current: false }
 ]
 
+
+
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
 export default function Navbar() {
+  const navigate = useNavigate();
+  function onLogout(){
+    localStorage.clear()
+    navigate("/login")
+  }
   return (
     <Disclosure as="nav" className="bg-gray-800">
       {({ open }) => (
@@ -93,10 +101,10 @@ export default function Navbar() {
                           </a>
                         )}
                       </Menu.Item>
-                      <Menu.Item>
+                      <Menu.Item >
                         {({ active }) => (
                           <a
-                            href="#"
+                            href="#" onClick={onLogout}
                             className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
                           >
                             Déconnection
