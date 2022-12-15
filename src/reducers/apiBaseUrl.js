@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit'
 export const apiBaseUrlSlice = createSlice({
   name: 'apiBaseUrl',
   initialState: {
-    value: "http://localhost:1700/api/v1",
+    value: "http://localhost:1337/api/v1",
   },
   /*reducers: {
     increment: (state) => {
