@@ -1,12 +1,12 @@
 import { Fragment } from 'react'
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import logo from '../../assets/images/logo-min.png'
 const navigation = [
-  { name: 'Vols', href: '#', current: true },
-  { name: 'Avions', href: '#', current: false },
-  { name: 'Personnalités', href: '#', current: false }
+  { name: 'Vols', route: '/', current: false },
+  { name: 'Avions', route: '/planes', current: false },
+  { name: 'Personnalités', route: '/personalities', current: false }
 ]
 
 
@@ -39,7 +39,7 @@ export default function Navbar() {
                 </Disclosure.Button>
               </div>
               <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
-                <div className="flex flex-shrink-0 items-center">
+                <div className="flex flex-shrink-0 items-center cursor-pointer" onClick={() => navigate("/")}>
                   <img
                     className="block h-8 w-auto lg:hidden"
                     src={logo}
@@ -56,7 +56,8 @@ export default function Navbar() {
                     {navigation.map((item) => (
                       <a
                         key={item.name}
-                        href={item.href}
+                        onClick={() => navigate(item.route)}
+                        href="#"
                         className={classNames(
                           item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
                           'px-3 py-2 rounded-md text-sm font-medium'
