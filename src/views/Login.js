@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux'
 import { LockClosedIcon } from '@heroicons/react/20/solid'
 import logo from '../assets/images/logo.svg'
 import axios from 'axios'
+import atob from 'atob'
 import { ToastContainer, toast } from 'react-toastify';
 
 const Login = () => {
@@ -24,6 +25,7 @@ const Login = () => {
     try {
       const {data} = await axios.post(apiBaseUrl + '/auth/login', form)
       localStorage.token = data
+      localStorage.status = JSON.parse(atob(data.split('.')[1])).status
       navigate('/')
     } catch (error) {
       toast.error("Identifiants invalide")
