@@ -6,6 +6,8 @@ import {
 import './style/global.css'
 import Home from "./views/Home";
 import Planes from "./views/Planes";
+import Personalities from "./views/Personalities";
+import Profile from "./views/Profile";
 import Login from "./views/Login";
 import Register from "./views/Register";
 import PrivateRoutes from "./utils/PrivateRoutes"
@@ -19,6 +21,8 @@ function App() {
         <Route element={<PrivateRoutes />}>
           <Route element={<Home/>} path="/" exact/>
           <Route element={<Planes/>} path="/planes" exact/>
+          <Route element={<Personalities/>} path="/Personalities" exact/>
+          <Route element={<Profile/>} path="/Profile" exact/>
         </Route>
         <Route element={<Login/>} path="/login"/>
         <Route element={<Register/>} path="/register"/>

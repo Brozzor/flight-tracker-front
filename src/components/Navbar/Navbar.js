@@ -96,6 +96,7 @@ export default function Navbar() {
                         {({ active }) => (
                           <a
                             href="#"
+                            onClick={() => navigate("/profile")}
                             className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
                           >
                             Votre profil
@@ -125,7 +126,7 @@ export default function Navbar() {
                 <Disclosure.Button
                   key={item.name}
                   as="a"
-                  href={item.href}
+                  onClick={() => navigate(item.route)}
                   className={classNames(
                     item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
                     'block px-3 py-2 rounded-md text-base font-medium'
