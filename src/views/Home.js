@@ -99,7 +99,7 @@ const Home = () => {
                 <ChangeView center={mapView.center} zoom={mapView.zoom} /> 
                 <TileLayer
                   attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-                  url="https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}.png"
+                  url="https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}.png?api_key=a8e501bc-a838-4718-836e-3f26bc6d6239"
                 />
                 { selectedFlight && selectedFlight.from && selectedFlight.to ? <Polyline pathOptions={{color: "white"}} positions={[
                     [selectedFlight.from.latitude, selectedFlight.from.longitude],
