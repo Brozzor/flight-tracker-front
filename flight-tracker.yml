@@ -1,0 +1,5 @@
+apps:
+  - script: NODE_ENV=production node server.js
+    name: flight-tracker-front
+    restart_delay: 1000
+    log_date_format: 'YYYY-MM-DD HH:mm Z'
